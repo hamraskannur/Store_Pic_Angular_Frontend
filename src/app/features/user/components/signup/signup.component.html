@@ -1,1 +1,133 @@
-<p>signup works!</p>
+<section>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <span></span> <span></span> <span></span> <span></span> <span></span>
+  <div class="signin">
+    <div class="content">
+      <h2>sign up</h2>
+      <form (ngSubmit)="onSubmit()" class="form" [formGroup]="signupForm">
+        <div class="inputBox">
+            <input type="text" name="userName" required formControlName="userName" />
+          <i>Username</i>
+          <div
+            *ngIf="submit && f.userName.errors"
+            class="invalid-feedback text-red-600"
+          >
+            <small *ngIf="f.userName.errors['required']">
+              username is required
+            </small>
+            <small *ngIf="f.userName.errors['minlength']">
+              username minLength 6 letter
+            </small>
+          </div>
+        </div>
+        <div class="inputBox">
+          <input type="email" required formControlName="email" name="email"/> <i>Email</i>
+          <div
+            *ngIf="submit && f.email.errors"
+            class="invalid-feedback text-red-600"
+          >
+            <small *ngIf="f.email.errors['required']">
+              email is required
+            </small>
+            <small *ngIf="f.email.errors['email']"> invalid email </small>
+          </div>
+        </div>
+        <div class="inputBox">
+          <div class="flex h-full">
+            <input
+            name="password"
+              type="{{ passwordShown ? 'text' : 'password' }}"
+              required
+              formControlName="password"
+            />
+            <i>Password</i>
+            <div class="flex justify-center items-center">
+
+              <img
+                (click)="togglePasswordVisibility()"
+                [src]="
+                  passwordShown
+                    ? 'https://cdn-icons-png.flaticon.com/512/565/565655.png'
+                    : 'https://cdn-icons-png.flaticon.com/512/6684/6684701.png'
+                "
+                [class]="
+                  passwordShown
+                    ? 'w-8 h-8  p-1 cursor-pointer'
+                    : 'w-8 h-8  p-1 cursor-pointer'
+                "
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div
+            *ngIf="submit && f.password.errors"
+            class="invalid-feedback text-red-600"
+          >
+            <small *ngIf="f.password.errors['required']">
+              password is required
+            </small>
+            <small *ngIf="f.password.errors['pattern']">
+              Password contain minimum 6 letters and combination of Alphabets
+              and numbers and a special character
+            </small>
+          </div>
+        </div>
+        <div class="links w-full"><a class="flex w-full justify-center items-center"><small>{{errorMessage}}</small></a> <a routerLink="/login">Login</a></div>
+        <div class="inputBoxs">
+          <button type="submit" class="inputBoxs" >Sign up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
