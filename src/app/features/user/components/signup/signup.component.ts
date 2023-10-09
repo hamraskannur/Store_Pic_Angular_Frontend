@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { passwordPattern } from 'src/app/constants/pattern';
 import { ApiService } from '../../services/api.service';
 import { Subscription } from 'rxjs';
-import { AuthResponse } from 'src/app/core/interceptors/interceptors';
+import { AuthResponse } from 'src/app/core/models/interceptors';
 import { Router } from '@angular/router';
 
 @Component({

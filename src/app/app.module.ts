@@ -3,18 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { UserStateModule } from './stores/state.module';
+import { TokenIntercepterService } from './core/interceptors/token-intercepter.service';
+import { ErrorHandlingInterceptor } from './core/interceptors/errorHandintercepter.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [AppComponent],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, UserStateModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntercepterService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandlingInterceptor,
+      multi: true,
+    },
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

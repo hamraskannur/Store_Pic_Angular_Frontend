@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { passwordPattern } from 'src/app/constants/pattern';
-import { AuthResponse } from 'src/app/core/interceptors/interceptors';
+import { AuthResponse } from 'src/app/core/models/interceptors';
 
 @Component({
   selector: 'app-login',
