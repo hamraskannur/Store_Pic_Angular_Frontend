@@ -1,0 +1,41 @@
+  <form id="file-upload-form " class="uploader mt-5">
+    <input
+      id="file-upload"
+      type="file"
+      name="fileUpload"
+      accept="image/*"
+      (change)="fileSelectHandler($event)"
+    />
+    <label for="file-upload" id="file-drag" >
+      <img
+        id="file-image"
+        *ngIf="selectedImage; else uploadimg"
+        [src]="selectedImage"
+        alt="Preview"
+      />
+      <ng-template #uploadimg>
+        <div id="start">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <div>Select a file</div>
+          <div id="notimage" class="hidden">Please select an image</div>
+          <span id="file-upload-btn" class="btn bg-[#6B7280]"
+            >Select a file</span
+          >
+        </div>
+      </ng-template>
+      <div id="messages" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div id="response" *ngIf="startUpload" class="flex-none">
+        <progress
+          class="progress"
+          id="file-progress"
+          [value]="fileProgress"
+          max="100"
+        ></progress>
+        <span class="text-slate-900">{{ fileProgress }}</span
+        >%
+      </div>
+    </label>
+  </form>
+  <div class="container " *ngIf="selectedImage">
+    <span class="btn bg-[#6B7280]" (click)="uploadFiles()">upload Image</span>
+  </div>

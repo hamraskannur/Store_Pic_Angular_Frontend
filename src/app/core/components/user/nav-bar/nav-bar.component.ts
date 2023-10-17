@@ -13,6 +13,7 @@ import { selectUserDataAndOptions } from 'src/app/stores/user/user.selectors';
 })
 export class NavBarComponent implements OnInit{
   userDataAndOptions$ = this.store.select(selectUserDataAndOptions);
+  open=false
   username=''
   constructor(
     private router: Router,
@@ -28,5 +29,8 @@ export class NavBarComponent implements OnInit{
   userLogOut(){
     localStorage.clear()
     this.router.navigate(['/login'])
+  }
+  openNav(){
+    this.open=!this.open
   }
 }

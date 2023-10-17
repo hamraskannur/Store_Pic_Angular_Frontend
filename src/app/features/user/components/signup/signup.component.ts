@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { FormBuilder, Validators } from '@angular/forms';
 import { passwordPattern } from 'src/app/constants/pattern';
 import { ApiService } from '../../services/api.service';
 import { Subscription } from 'rxjs';
 import { AuthResponse } from 'src/app/core/models/interceptors';
 import { Router } from '@angular/router';
+import { UserState } from 'src/app/stores/user/user.reducer';
+import { updateOptions } from 'src/app/stores/user/user.actions';
 
 @Component({
   selector: 'app-signup',
@@ -21,6 +24,7 @@ export class SignupComponent {
     private FormBuilder: FormBuilder,
     private ApiService: ApiService,
     private router: Router,
+    private store: Store<{ user: UserState }>
   ) {}
 
   signupForm = this.FormBuilder.group({
@@ -40,6 +44,7 @@ export class SignupComponent {
         this.signupForm.value
       ).subscribe((data:AuthResponse) => {
       if(data.status){
+        this.store.dispatch(updateOptions({ user: data.user }));
         localStorage.setItem('token', data.token);
         this.errorMessage = '';
         this.router.navigate(['/']);

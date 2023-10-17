@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+
 import { ApiService } from '../../services/api.service';
 import { passwordPattern } from 'src/app/constants/pattern';
 import { AuthResponse } from 'src/app/core/models/interceptors';
+import { UserState } from 'src/app/stores/user/user.reducer';
+import { updateOptions } from 'src/app/stores/user/user.actions';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +25,8 @@ export class LoginComponent {
     private FormBuilder: FormBuilder,
     private ApiService: ApiService,
     private router: Router,
+    private store: Store<{ user: UserState }>
+
   ) {}
 
   loginForm = this.FormBuilder.group({
@@ -39,6 +45,7 @@ export class LoginComponent {
         this.loginForm.value
       ).subscribe((data:AuthResponse) => {
       if(data.status){        
+        this.store.dispatch(updateOptions({ user: data.user }));
         localStorage.setItem('token', data.token);
         this.errorMessage = '';
         this.router.navigate(['/']);

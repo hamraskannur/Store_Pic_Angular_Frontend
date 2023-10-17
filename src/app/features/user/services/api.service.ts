@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 
-import { AuthResponse, User } from '../../../core/models/interceptors';
+import { AuthResponse, Image, User } from '../../../core/models/interceptors';
 
 @Injectable({
   providedIn: 'root',
@@ -25,4 +25,14 @@ export class ApiService {
   getUser = (): Observable<{ success: boolean; message: string; user: User }> => {
     return this.http.get<{ success: boolean; message: string; user: User }>(`${this.serverApi}getUser`);
   };
+
+  uploadImage=(formData:FormData): Observable<HttpEvent<{ success: boolean,image:Image, message: string }>> => {
+    return this.http.post<{ success: boolean,image:Image , message: string }>(`${this.serverApi}upload`, formData, {reportProgress: true,observe: 'events'})
+  };
+
+  getImages=(): Observable<{ success: boolean; message: string ,images:Image[]}> => {
+    return this.http.get<{ success: boolean; message: string ,images:Image[]}>(`${this.serverApi}getAllImages`)
+  };
+
+  
 }
