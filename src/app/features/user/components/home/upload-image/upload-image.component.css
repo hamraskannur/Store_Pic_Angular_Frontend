@@ -197,3 +197,54 @@ p {
     border-color:  #6B7280;
     cursor: pointer;
   }
+
+
+  
+  :root {
+    --arrow-bg: rgba(255, 255, 255, 0.3);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg:black;
+    --select-bg: rgba(255, 255, 255, 0.2);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: linear-gradient(35deg, red, purple);
+  }
+  
+  /* <select> styles */
+  select {
+    /* Reset */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    /* Personalize */
+    width: 20rem;
+    padding: 1rem ;
+    background:#fff;
+    color: black;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  select:focus {
+    outline: none;
+  }
+  select option {
+    color: white;
+
+    background-color: black;
+  }

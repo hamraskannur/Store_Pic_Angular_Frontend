@@ -33,6 +33,12 @@ export class ApiService {
   getImages=(): Observable<{ success: boolean; message: string ,images:Image[]}> => {
     return this.http.get<{ success: boolean; message: string ,images:Image[]}>(`${this.serverApi}getAllImages`)
   };
+  getOneImages=(ImageId:string): Observable<{ success: boolean; message: string ,image:Image}> => {
+    return this.http.get<{ success: boolean; message: string ,image:Image}>(`${this.serverApi}getOneImages/${ImageId}`)
+  };
 
-  
+  deleteImage=(ImageId:string): Observable<{ success: boolean; message: string }> => {
+    return this.http.delete<{ success: boolean; message: string }>(`${this.serverApi}deleteImage/${ImageId}`)
+  };
+
 }

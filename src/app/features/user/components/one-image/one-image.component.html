@@ -1,0 +1,95 @@
+<app-nav-bar></app-nav-bar>
+<div  *ngIf="image ">
+    <app-confirmation-popup [image]="image" *ngIf="popup" (cancelDelete)="deleteImagePopup()"></app-confirmation-popup>
+    <div class="w-full flex mt-2 justify-center">
+        <div>
+            <img
+          class="rounded-lg h-72 w-72"
+          [src]="image.image"
+          alt=""
+        />
+       <div class="flex justify-between">
+        <a class="btn btn-delete mt-2" [href]="image.image" download="downloaded-image.jpg">
+            <img class="h-5 w-5" src="data:image/png;base64,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" alt="">
+            <span class="mdi mdi-delete-empty mdi-24px"></span>
+            <span>Download</span>
+        </a>
+          <button (click)="deleteImagePopup()" class="btn btn-delete mt-2">
+            <img class="h-5 w-5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAB8CAMAAACcwCSMAAAAYFBMVEX///8AAAD8/PxVVVXo6OiWlpampqY4ODjw8PCdnZ3Y2Njr6+tnZ2cuLi6Hh4ezs7PQ0NBxcXHf398NDQ15eXlbW1sVFRVCQkK8vLwiIiJJSUmPj49sbGyBgYHCwsInJyemCVkzAAACR0lEQVRoge2b63KCMBBGDQhCREE0Xurt/d+yFc2GmRqSwKbtdL7zc2fZI5cQA8tsBgD4i7SNDVnENSd1uhdWFrt5RHdzsJufnJNY7tyl/uIj0rH3cQtxj7Lv0sstxCaCO1GectHwy313XIgLv3zjLRfsA25uxne1ecuKEtbc8pJKHy0ZSaozVtzDjfbrZE250e+red1HKlzak7Y658Arp0MqBg5pRkmso21OZYduIUuvrGDOfvtk7kOMl1xCRT8G88wlN3BlhFI7x9kLmnLvIyzJ/C1mBMvl+4wnhTk9x7eJywG336Q5Bft0v3RvPJmzTd5u3RtPZQc55JrkFF9un21llXbQPXqbTkItdKGVekYyq/ux8x0zvc2ieEXGYe5a2bPOkJroySfRk/sDOeSQQw75T8lvZZ7nZX9GbLpI3pstZN5FzB9kJrleBCrK0SuJA9mbV+REjyaY5LQ+p0ilI62O0JKB1jXccjqmJJc6stYROjmQQw455JBDDjnkkEMOOeSQQw455JBDDnmI/P6bcv2S0TQI0fNGyqHWCvo5TPLimiql0gs965wl60dEqV7zStYFlOnqYHvk/f19pDvyL563Qw455PHk+9adO8RVFwrpj6Mm14nNjNQtEtIPSr0q1SS3aVGW7mSCqY/T9IyGbGWaGUVejuZCRZRb2YO5S+oWJC/dBQNYhHX7Fyt3SX9Ce59rd0lvws74g6u7qCf3EbfJgFb+QfajGv15LrqxH7bIavKIO+TjP2tpb2U2nrKW0b4mAgD48wlXVTjeVvw1aQAAAABJRU5ErkJggg==" alt="">
+            <span class="mdi mdi-delete-empty mdi-24px"></span>
+            <span>Delete</span>
+          </button>
+       </div>
+    </div>
+</div>
+<hr class="mt-5"/>
+
+<div class="flex justify-center mt-2 ">
+    <h1 class="text-[25px]"><strong>Image Links</strong></h1>
+</div>
+
+
+<div>
+    <div class="md:flex md:items-center mb-6 mt-2">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            Image Linke
+          </label>
+        </div>
+        <div class="md:w-2/3">
+            <input [value]="image.image" class="bg-gray-200 appearance-none border-2 border-gray-200 w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]" id="imageLinke" type="text" value="Jane Doe" readonly>
+            <button type="button" class="bg-gray-200 p-2" (click)="copyToClipboard('imageLinke')">Copy</button>
+          </div>
+      </div>
+
+      <div class="md:flex md:items-center mb-6 mt-2">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            Full Linke
+          </label>
+        </div>
+        <div class="md:w-2/3  ">
+          <input [value]="'http://localhost:4200/oneImage/'+image._id" class="bg-gray-200 appearance-none border-2 border-gray-200  w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]" id="fullLinke" type="text" value="Jane Doe" readonly>
+          <button class="bg-gray-200 p-2" (click)="copyToClipboard('fullLinke')">Copy</button>
+        </div>
+      </div>
+
+      <div class="md:flex md:items-center mb-6 mt-2">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            HTML
+          </label>
+        </div>
+        <div class="md:w-2/3">
+            <input [value]="htmlLink"  class="bg-gray-200 appearance-none border-2 border-gray-200 w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]" id="htmlLink" type="text" value="Jane Doe" readonly>
+            <button class="bg-gray-200 p-2" (click)="copyToClipboard('htmlLink')">Copy</button>
+          </div>          
+      </div>
+
+      <div class="md:flex md:items-center mb-6 mt-2">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            Thumbnail Link
+          </label>
+        </div>
+        <div class="md:w-2/3">
+            <input [value]="image.Thumbnail"  class="bg-gray-200 appearance-none border-2 border-gray-200 w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]" id="thumbnailLink" type="text" value="Jane Doe" readonly>
+            <button class="bg-gray-200 p-2" (click)="copyToClipboard('thumbnailLink')">Copy</button>
+          </div>          
+      </div>
+
+      
+      <div class="md:flex md:items-center mb-6 mt-2">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            Thumbnail Html
+          </label>
+        </div>
+        <div class="md:w-2/3">
+            <input [value]="thumbnailLink"  class="bg-gray-200 appearance-none border-2 border-gray-200 w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]" id="thumbnailLinkHtml" type="text" value="Jane Doe" readonly>
+            <button class="bg-gray-200 p-2" (click)="copyToClipboard('thumbnailLinkHtml')">Copy</button>
+          </div>          
+      </div>
+</div>
+
+</div>

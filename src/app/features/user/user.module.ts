@@ -7,6 +7,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from 'src/app/core/components/user/nav-bar/nav-bar.component';
 import { UploadImageComponent } from './components/home/upload-image/upload-image.component';
+import { OneImageComponent } from './components/one-image/one-image.component';
+import { ConfirmationPopupComponent } from './components/one-image/confirmation-popup/confirmation-popup.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { UploadImageComponent } from './components/home/upload-image/upload-imag
     SignupComponent,
     HomeComponent,
     NavBarComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    OneImageComponent,
+    ConfirmationPopupComponent
   ],
   imports: [
     FormsModule,

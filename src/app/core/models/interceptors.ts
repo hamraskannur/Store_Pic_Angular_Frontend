@@ -19,4 +19,5 @@ export interface Image{
   userId:string
   image:string
   expiration:string
+  Thumbnail:string
 }

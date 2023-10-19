@@ -1,28 +1,4 @@
-<!-- <div
-  class="navBar bg-[#6B7280] flex justify-between items-center shadow-lg p-[1rem]"
->
-  <div class="flex gap-2 logoDiv px-10 cursor-pointer">
-    <h1 class="logo text-[25px] text-white"><strong>Tummok</strong>App</h1>
-  </div>
-  <div class="menu flex gap-8 pr-10">
-    <div class="flex gap-2">
-      <div class="w-9  rounded-full overflow-hidden">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
-          alt="logo"
-        />
-      </div>
-      <h1 class="mt-1 text-white text-[20px]">{{username}}</h1>
-    </div>
 
-    <button
-      (click)="userLogOut()"
-      class="bg-white text-[#6f6f6f] px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]"
-    >
-      Logout
-    </button>
-  </div>
-</div> -->
 <nav
   class="mx-auto block w-full border border-white/80 bg-[#6B7280] bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4"
 >
@@ -40,7 +16,7 @@
         <li
           class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
         >
-          <a class="flex items-center font-medium" href="#"> Home </a>
+          <a class="flex items-center font-medium" routerLink="/"> Home </a>
         </li>
         <li
           class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
@@ -48,24 +24,40 @@
           <a class="flex items-center font-medium" href="#"> Api </a>
         </li>
       </ul>
-      <div class="flex lg:w-auto w-full justify-end mr-2 ">
-        <div class="flex gap-2 ">
-          <div class="w-9 rounded-full overflow-hidden ">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
-              alt="logo"
-            />
+      
+      <div class="flex lg:w-auto w-full justify-end mr-2" >
+
+        <ng-container *ngIf="username; else loginLink">
+          <div class="flex gap-2">
+            <div class="w-9 rounded-full overflow-hidden">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                alt="logo"
+              />
+            </div>
+            <h1 class="mt-1 text-white text-[20px] hidden lg:block">
+              {{ username }}
+            </h1>
           </div>
-          <h1 class="mt-1 text-white text-[20px] hidden lg:block">{{ username }}</h1>
-        </div>
-        
-        <button
-          (click)="userLogOut()"
-          class="bg-white ml-5 hidden lg:block text-[#6f6f6f] px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]"
-        >
-          Logout
-        </button>
-     </div>
+  
+          <button
+            (click)="userLogOut()"
+            class="bg-white ml-5 hidden lg:block text-[#6f6f6f] px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]"
+          >
+            Logout
+          </button>
+        </ng-container>
+      
+        <ng-template #loginLink>
+          <!-- This will be displayed when 'username' is not defined -->
+          <a
+            routerLink="/login"
+            class="bg-white ml-5 hidden lg:block text-[#6f6f6f] px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]"
+          >
+            login
+          </a>
+        </ng-template>
+      </div>
       <button
         (click)="openNav()"
         class="middle none relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] rounded-lg text-center font-sans text-xs font-medium uppercase text-blue-gray-500 transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
