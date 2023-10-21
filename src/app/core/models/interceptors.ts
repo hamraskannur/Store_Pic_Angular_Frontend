@@ -5,6 +5,7 @@ export interface User{
   username:string
   email:string
   status:boolean
+  key:string
 }
 
 export interface AuthResponse {

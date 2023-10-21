@@ -41,4 +41,10 @@ export class ApiService {
     return this.http.delete<{ success: boolean; message: string }>(`${this.serverApi}deleteImage/${ImageId}`)
   };
 
+  changeApi=(): Observable<{ success: boolean; message: string ,user:User}> => {
+    return this.http.put<{ success: boolean; message: string ,user:User}>(`${this.serverApi}changeApi`, {})
+  };
+
+  
+
 }

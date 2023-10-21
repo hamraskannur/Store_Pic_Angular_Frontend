@@ -9,6 +9,7 @@ import { NavBarComponent } from 'src/app/core/components/user/nav-bar/nav-bar.co
 import { UploadImageComponent } from './components/home/upload-image/upload-image.component';
 import { OneImageComponent } from './components/one-image/one-image.component';
 import { ConfirmationPopupComponent } from './components/one-image/confirmation-popup/confirmation-popup.component';
+import { ApiComponent } from './components/api/api.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConfirmationPopupComponent } from './components/one-image/confirmation-
     NavBarComponent,
     UploadImageComponent,
     OneImageComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    ApiComponent
   ],
   imports: [
     FormsModule,

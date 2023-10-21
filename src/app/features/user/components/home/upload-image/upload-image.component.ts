@@ -14,6 +14,7 @@ export class UploadImageComponent {
   file: File | null = null;
   startUpload = false;
   errorMessage = '';
+  selectedExpirationTime: number = 0; // Default to "Don't auto delete"
   @Output() addImage: EventEmitter<Image> = new EventEmitter<Image>();
 
   constructor(private ApiService: ApiService) {}
@@ -48,6 +49,7 @@ export class UploadImageComponent {
     if (this.file) {
       const formData = new FormData();
       formData.append('image', this.file);
+      formData.append('expirationTime', this.selectedExpirationTime.toString());
       this.ApiService.uploadImage(formData).subscribe((event) => {
         if (event.type === HttpEventType.UploadProgress && event.total) {
           this.fileProgress = Math.round((100 * event.loaded) / event.total);
