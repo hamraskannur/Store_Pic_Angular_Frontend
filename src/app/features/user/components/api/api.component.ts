@@ -15,16 +15,7 @@ export class ApiComponent implements OnInit {
   userDataAndOptions$ = this.store.select(selectUserDataAndOptions);
   key: string | null = null
   loding = false;
-  resObject={
-    "data": {
-      "id": "2ndCYJK",
-      "url": "https://i.ibb.co/w04Prt6/c1f64245afb2.gif",
-      "display_url": "https://i.ibb.co/98W13PY/c1f64245afb2.gif",
-      "delete_url": "https://ibb.co/2ndCYJK/670a7e48ddcb85ac340c717a41047e5c"
-    },
-    "success": true,
-    "status": 200
-  }
+ 
 
   
   formattedJSON: string;
@@ -33,8 +24,22 @@ export class ApiComponent implements OnInit {
     private ApiService: ApiService,
     private store: Store<{ user: UserState }>
   ) {
-    this.formattedJSON = JSON.stringify(this.resObject, null, 2);
-  }
+    this.formattedJSON = JSON.stringify(
+      {
+        data: {
+          id: '2ndCYJK',
+          url: 'https://i.ibb.co/w04Prt6/c1f64245afb2.gif',
+          display_url: 'https://i.ibb.co/98W13PY/c1f64245afb2.gif',
+          expiration: '0',
+          delete_url: 'https://ibb.co/2ndCYJK/670a7e48ddcb85ac340c717a41047e5c'
+        },
+        success: true,
+        status: 200
+      },
+      null,
+      2 // The number of spaces to use for indentation
+    );
+      }
 
 
   ngOnInit(): void {

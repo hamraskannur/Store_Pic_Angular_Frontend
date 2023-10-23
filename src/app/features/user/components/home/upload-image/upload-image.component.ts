@@ -55,9 +55,13 @@ export class UploadImageComponent {
           this.fileProgress = Math.round((100 * event.loaded) / event.total);
         } else if (event.type === HttpEventType.Response ) {
           if(event.body){
-            this.addImage.emit(event.body.image);
-            this.startUpload=false
-            this.fileProgress = 0;
+            if(event.body.success){
+              this.addImage.emit(event.body.image);
+              this.startUpload=false
+              this.fileProgress = 0;
+            }else{
+              this.errorMessage=event.body.message
+            }
           }
 
         }

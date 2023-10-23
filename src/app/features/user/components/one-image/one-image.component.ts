@@ -10,8 +10,6 @@ import { ApiService } from '../../services/api.service';
 })
 export class OneImageComponent implements OnInit {
   image:Image|undefined
-  htmlLink:string |undefined
-  thumbnailLink:string|undefined
   popup=false
   constructor(private route: ActivatedRoute,private ApiService:ApiService,private router: Router) { }
   ngOnInit() {
@@ -21,8 +19,6 @@ export class OneImageComponent implements OnInit {
         this.ApiService.getOneImages(id).subscribe(({success,image}:{ success: boolean; message: string ,image:Image})=>{
            if(success){
              this.image=image
-             this.htmlLink = `<a href="http://localhost:4200/oneImage/${image._id}"><img src="${image.image}" alt="pexels-efe-ersoy-17102321" border="0" /></a>`;
-             this.thumbnailLink=`<a href="http://localhost:4200/oneImage/${image._id}"><img src="${image.Thumbnail}" alt="pexels-efe-ersoy-17102321" border="0" /></a>`;
            }else{
             this.router.navigate(['/404']);
           }

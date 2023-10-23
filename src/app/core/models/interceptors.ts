@@ -21,4 +21,7 @@ export interface Image{
   image:string
   expiration:string
   Thumbnail:string
+  fullLink:string
+  html:string
+  thumbnailHtml:string
 }

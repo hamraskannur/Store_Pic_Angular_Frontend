@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="flex justify-center items-center">
-  <div class="md:w-1/2">
+  <div class="w-full md:mx-56 mx-5">
     <h1 class="mt-5"><strong>API version 1</strong></h1>
     <div class="md:flex md:items-center mb-6 mt-2 md:w-full">
       <div class="md:w-full">
@@ -95,7 +95,7 @@
             class="bg-gray-200 appearance-none border-2 border-gray-200 w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]"
             id="api"
             type="text"
-            value="http://localhost:3008/{apiKey}/upload"
+            value="http://localhost:3008/{ApiKey}/upload"
             readonly
           />
           <button
@@ -114,17 +114,17 @@
           Image (required) :
         </label>
         <div class="md:w-full flex">
-          <label class="w-full text-gray-500 font-bold mb-1 md:mb-0 pr-4">
+          <label class="md:w-full text-gray-500 font-bold mb-1 md:mb-0 pr-4">
             image up to 10 MB
           </label>
         </div>
       </div>
-      <div class="w-full mt-2">
-        <label class="w-full block text-black font-bold mb-1 md:mb-0 pr-4">
+      <div class="md:w-full mt-2">
+        <label class="md:w-full block text-black font-bold mb-1 md:mb-0 pr-4">
           Api response :
         </label>
         <div class="md:w-full mt-5">
-          <label class="w-full text-gray-500 font-bold mb-1 md:mb-0 pr-4">
+          <label class="md:w-full break-all text-gray-500 font-bold mb-1 md:mb-0 pr-4">
             API v1 responses display all the image uploaded information in JSON
             format. JSON the response will have headers status codes to allow
             you to easily notice if the request was OK or not. It will also
@@ -133,15 +133,15 @@
         </div>
       </div>
 
-      <div class="w-full mt-4 mb-10 ">
-        <label class="w-full block text-black font-bold mb-1 md:mb-0 pr-4">
+      <div class="md:w-full mt-4 mb-10 ">
+        <label class="md:w-full block text-black font-bold mb-1 md:mb-0 pr-4">
           Example response(JSON):
         </label>
         <div class="md:w-full flex">
           
           <pre id="data" class="bg-gray-200 h-full border-2 border-gray-200 w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]">
             {{formattedJSON}}
-            </pre>
+          </pre>
             
           
         </div>
