@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class HandleErrorService {
-
+export class ErrorHandlerService {
   constructor(private router: Router) { }
+
   handleError(error: any): void {
     if (error.status === 404) {
         this.router.navigate(['/404']); 
@@ -22,3 +22,4 @@ export class HandleErrorService {
       }
   }
 }
+

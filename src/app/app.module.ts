@@ -7,9 +7,19 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserStateModule } from './stores/state.module';
 import { TokenIntercepterService } from './core/interceptors/token-intercepter.service';
 import { ErrorHandlingInterceptor } from './core/interceptors/errorHandintercepter.service';
+import { AppNotfoundComponent } from './features/error/components/app-notfound/app-notfound.component';
+import { AppInternalserverComponent } from './features/error/components/app-internalserver/app-internalserver.component';
+import { AppBadgatewayComponent } from './features/error/components/app-badgateway/app-badgateway.component';
+import { CommonerrorComponent } from './features/error/components/commonerror/commonerror.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    AppNotfoundComponent,
+    AppInternalserverComponent,
+    AppBadgatewayComponent,
+    CommonerrorComponent,
+  ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, UserStateModule],
   providers: [
     {

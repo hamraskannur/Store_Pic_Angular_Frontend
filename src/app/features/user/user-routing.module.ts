@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'api', component: ApiComponent, canActivate: [UserGuard] },
   { path: 'login', component: LoginComponent, canActivate: [UserLoginGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [UserLoginGuard] },
-  { path: '404', component: HomeComponent },
 ];
 
 @NgModule({
