@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminLoginGuard } from 'src/app/core/authentication-guard/adminLogin.guard';
 
 const routes: Routes = [
-    { path: 'home', component: HomeComponent, canActivate: [AdminGuard] },
+    { path: '',     pathMatch: 'full',    component: HomeComponent, canActivate: [AdminGuard] },
     { path: 'login', component: LoginComponent, canActivate: [AdminLoginGuard] },
 ];
 
