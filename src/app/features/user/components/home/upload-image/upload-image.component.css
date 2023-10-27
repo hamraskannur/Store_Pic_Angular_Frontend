@@ -86,9 +86,9 @@ p {
 .uploader #response.hidden {
   display: none;
 }
-.uploader #response #messages {
-  margin-bottom: 0.5rem;
-}
+  .uploader #response #messages {
+    margin-bottom: 0.5rem;
+  }
 .uploader #file-image {
   display: inline;
   margin: 0 auto 0.5rem auto;
@@ -162,8 +162,6 @@ p {
   color: #fff;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
-  background: #6B7280;
-  border-color:  #6B7280;
   cursor: pointer;
 }
 
@@ -193,8 +191,6 @@ p {
     color: #fff;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
-    background: #6B7280;
-    border-color:  #6B7280;
     cursor: pointer;
   }
 

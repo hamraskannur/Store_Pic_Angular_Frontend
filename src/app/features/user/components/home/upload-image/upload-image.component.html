@@ -16,11 +16,9 @@
       <ng-template #uploadimg>
         <div id="start">
           <i class="fa fa-download" aria-hidden="true"></i>
-          <div>Select a file</div>
+          <div class="text-gray-900"> Select a file</div>
           <div id="notimage" class="hidden">Please select an image</div>
-          <span id="file-upload-btn" class="btn bg-[#6B7280]"
-            >Select a file</span
-          >
+          <span id="file-upload-btn" class="btn bg-gray-900">Select a file</span>
         </div>
       </ng-template>
       <div id="messages" *ngIf="errorMessage">{{ errorMessage }}</div>
@@ -61,5 +59,5 @@
     </div>
 
 
-    <span class="btn bg-[#6B7280]" (click)="uploadFiles()">upload Image</span>
+    <span class="btn bg-gray-900" *ngIf="!startUpload" (click)="uploadFiles()">upload Image</span>
   </div>

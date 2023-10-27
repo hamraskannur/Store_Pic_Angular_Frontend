@@ -1,27 +1,27 @@
 
 <nav
-  class="mx-auto block w-full border border-white/80 bg-[#6B7280] bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4"
+  class="mx-auto block w-full border border-white/80 bg-gray-900 bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4"
 >
   <div>
     <div class="container mx-auto flex items-center justify-between text-white">
       <a
-        href="#"
+      routerLink="/home"
         class="mr-4 block cursor-pointer py-1.5 font-sans text-sm font-normal leading-normal text-inherit antialiased"
       >
         <div class="flex gap-2 logoDiv cursor-pointer">
-          <h1 class="logo text-[25px]"><strong>Store</strong>pic</h1>
+          <h1 class="logo text-[25px] text-white transition hover:text-gray-500/75"><strong>Store</strong>pic</h1>
         </div>
       </a>
       <ul class="hidden items-center gap-6 lg:flex">
         <li
           class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
         >
-          <a class="flex items-center font-medium" routerLink="/"> Home </a>
+          <a class="flex items-center font-medium text-white transition hover:text-gray-500/75" routerLink="/home"> Home </a>
         </li>
         <li
           class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased"
         >
-          <a class="flex items-center font-medium" routerLink="/api" > Api </a>
+          <a class="flex items-center font-medium text-white transition hover:text-gray-500/75" routerLink="/api" > Api </a>
         </li>
       </ul>
       
@@ -42,7 +42,7 @@
   
           <button
             (click)="userLogOut()"
-            class="bg-white ml-5 hidden lg:block text-[#6f6f6f] px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]"
+            class="ml-5 hidden lg:block px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]  bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 "
           >
             Logout
           </button>
@@ -52,7 +52,7 @@
           <!-- This will be displayed when 'username' is not defined -->
           <a
             routerLink="/login"
-            class="bg-white ml-5 hidden lg:block text-[#6f6f6f] px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]"
+            class=" ml-5 hidden lg:block px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]  bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 "
           >
             login
           </a>
@@ -110,8 +110,9 @@
         <h1 class="text-black">Search</h1>
       </a>
 
-      <a
-        routerLink="/search"
+      <button
+      *ngIf="username; else loginPhone"
+        (click)="userLogOut()"
         class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
       >
         <h1
@@ -120,7 +121,21 @@
           🚪
         </h1>
         <h1 class="text-black">Log Out</h1>
-      </a>
+      </button>
+      <ng-template #loginPhone>
+
+        <a
+          routerLink="/login"
+          class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
+        >
+          <h1
+            class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
+          >
+            🔓
+          </h1>
+          <h1 class="text-black">Log in</h1>
+        </a>
+      </ng-template>
     </div>
   </div>
 </nav>

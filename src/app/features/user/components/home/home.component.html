@@ -2,7 +2,11 @@
 <div class="flex mx-20 mt-5">
   <h1 class="logo text-[25px]"><strong>Yours Images :-</strong></h1>
   <div *ngIf="showButt" class="flex ml-auto">
-    <span class="btn bg-[#6B7280]" (click)="showUpload()">upload Image</span>
+    <span class="btn bg-gray-900" (click)="showUpload()">Upload Image</span>
+  </div>
+
+  <div *ngIf="!showButt" class="flex ml-auto">
+    <span class="btn bg-gray-900" (click)="showUpload()">Cancel upload</span>
   </div>
 </div>
 <div class="mt-3 w-full" *ngIf="!showButt">
@@ -17,7 +21,7 @@
       *ngFor="let image of images"
       class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
     >
-      <a [routerLink]="['oneImage', image._id]">
+      <a [routerLink]="['/oneImage', image._id]">
         <img
           class="rounded-lg h-96 w-96"
           [src]="image.image"

@@ -14,6 +14,7 @@ import { selectUserDataAndOptions } from 'src/app/stores/user/user.selectors';
 export class ApiComponent implements OnInit {
   userDataAndOptions$ = this.store.select(selectUserDataAndOptions);
   key: string | null = null
+  deleteImage=``
   loding = false;
  
 
@@ -27,11 +28,13 @@ export class ApiComponent implements OnInit {
     this.formattedJSON = JSON.stringify(
       {
         data: {
-          id: '2ndCYJK',
-          url: 'https://i.ibb.co/w04Prt6/c1f64245afb2.gif',
-          display_url: 'https://i.ibb.co/98W13PY/c1f64245afb2.gif',
+          _id: '2ndCYJK',
+          image: 'https://i.ibb.co/w04Prt6/c1f64245afb2.gif',
+          Thumbnail: 'https://i.ibb.co/98W13PY/c1f64245afb2.gif',
+          fullLink:'https://i.ibb.co/98W13PY/c1f64245afb2.gif',
+          html:`<a href="http://localhost:4200/oneImage/6536261d8d652d7f0c8ca8eb"><img src="http://localhost:3008/1698047517041-9f0f68b2-9e6a-4fba-a138-755c7e3402c1-images-(1).jfif.png" alt="pexels-efe-ersoy-17102321" border="0" /></a>`,
           expiration: '0',
-          delete_url: 'https://ibb.co/2ndCYJK/670a7e48ddcb85ac340c717a41047e5c'
+          delete_url: 'http://localhost:3800/deleteImage/565565656565656565656'
         },
         success: true,
         status: 200

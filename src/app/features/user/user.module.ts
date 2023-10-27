@@ -10,6 +10,7 @@ import { UploadImageComponent } from './components/home/upload-image/upload-imag
 import { OneImageComponent } from './components/one-image/one-image.component';
 import { ConfirmationPopupComponent } from './components/one-image/confirmation-popup/confirmation-popup.component';
 import { ApiComponent } from './components/api/api.component';
+import { GuestUserComponent } from './components/guest-user/guest-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ApiComponent } from './components/api/api.component';
     UploadImageComponent,
     OneImageComponent,
     ConfirmationPopupComponent,
-    ApiComponent
+    ApiComponent,
+    GuestUserComponent
   ],
   imports: [
     FormsModule,

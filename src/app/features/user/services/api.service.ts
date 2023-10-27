@@ -29,7 +29,11 @@ export class ApiService {
   uploadImage=(formData:FormData): Observable<HttpEvent<{ success: boolean,image:Image, message: string }>> => {
     return this.http.post<{ success: boolean,image:Image , message: string }>(`${this.serverApi}upload`, formData, {reportProgress: true,observe: 'events'})
   };
+  guestUserUploadImage=(formData:FormData): Observable<HttpEvent<{ success: boolean,image:Image, message: string }>> => {
+    return this.http.post<{ success: boolean,image:Image , message: string }>(`${this.serverApi}guestUser`, formData, {reportProgress: true,observe: 'events'})
+  };
 
+  
   getImages=(): Observable<{ success: boolean; message: string ,images:Image[]}> => {
     return this.http.get<{ success: boolean; message: string ,images:Image[]}>(`${this.serverApi}getAllImages`)
   };

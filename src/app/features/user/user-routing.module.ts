@@ -8,19 +8,21 @@ import { UserLoginGuard } from 'src/app/core/authentication-guard/userLogin.guar
 import { UserGuard } from 'src/app/core/authentication-guard/user.guard';
 import { OneImageComponent } from './components/one-image/one-image.component';
 import { ApiComponent } from './components/api/api.component';
+import { GuestUserComponent } from './components/guest-user/guest-user.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent,
-    canActivate: [UserGuard],
+    component: GuestUserComponent,
+    canActivate: [UserLoginGuard]
   },
-  { path: 'oneImage/:id', component: OneImageComponent},
+  { path: 'home', component: HomeComponent, canActivate: [UserGuard] },
+  { path: 'oneImage/:id', component: OneImageComponent },
   { path: 'api', component: ApiComponent, canActivate: [UserGuard] },
   { path: 'login', component: LoginComponent, canActivate: [UserLoginGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [UserLoginGuard] },
-  { path: '404', component: HomeComponent},
+  { path: '404', component: HomeComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,138 @@
+.btn {
+  display: inline-block;
+  margin: 0.5rem 0.5rem 1rem 0.5rem;
+  clear: both;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: initial;
+  border: none;
+  border-radius: 0.2rem;
+  outline: none;
+  padding: 0 1rem;
+  height: 36px;
+  line-height: 36px;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.uploader input[type="file"] {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+:root {
+  --arrow-bg: rgba(255, 255, 255, 0.3);
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  --option-bg: black;
+  --select-bg: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: linear-gradient(35deg, red, purple);
+}
+
+/* <select> styles */
+select {
+  /* Reset */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  /* Personalize */
+  width: 20rem;
+  padding: 1rem;
+  background: #fff;
+  color: black;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
+select:focus {
+  outline: none;
+}
+select option {
+  color: white;
+
+  background-color: black;
+}
+
+#file-image {
+  display: inline;
+  width: auto;
+  height: auto;
+  max-width: 180px;
+}
+
+#file-image.hidden {
+  display: none;
+}
+
+#response {
+  width: 100%;
+}
+
+
+
+#response.hidden {
+  display: none;
+}
+#messages {
+    margin-bottom: 0.5rem;
+    color: red;
+  }
+.progress {
+  display: inline;
+  clear: both;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 180px;
+  height: 8px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.progress[value]::-webkit-progress-bar {
+  border-radius: 4px;
+  background-color: #eee; /* Background color for the progress bar container */
+}
+
+.progress[value]::-webkit-progress-value {
+  background: linear-gradient(
+    to right,
+    #4caf50 0%,
+    #4caf50 50%
+  ); /* Green gradient for progress */
+  border-radius: 4px;
+}
+
+.progress[value]::-moz-progress-bar {
+  background: linear-gradient(
+    to right,
+    #4caf50 0%,
+    #4caf50 50%
+  ); /* Green gradient for progress */
+  border-radius: 4px;
+}

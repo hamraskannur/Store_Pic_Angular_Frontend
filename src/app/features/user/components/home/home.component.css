@@ -1,7 +1,5 @@
 .btn {
-    display: inline-block;
-    margin: 0.5rem 0.5rem 1rem 0.5rem;
-    clear: both;
+    
     font-family: inherit;
     font-weight: 700;
     font-size: 14px;
@@ -16,8 +14,6 @@
     color: #fff;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
-    background: #6B7280;
-    border-color:  #6B7280;
     cursor: pointer;
   }
   
