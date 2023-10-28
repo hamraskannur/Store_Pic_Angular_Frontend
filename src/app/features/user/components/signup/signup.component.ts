@@ -8,6 +8,7 @@ import { AuthResponse } from 'src/app/core/models/interceptors';
 import { Router } from '@angular/router';
 import { UserState } from 'src/app/stores/user/user.reducer';
 import { updateOptions } from 'src/app/stores/user/user.actions';
+import { ToastrCallService } from '../../services/toastr.service';
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +25,8 @@ export class SignupComponent {
     private FormBuilder: FormBuilder,
     private ApiService: ApiService,
     private router: Router,
-    private store: Store<{ user: UserState }>
+    private store: Store<{ user: UserState }>,
+    private ToastrService:ToastrCallService
   ) {}
 
   signupForm = this.FormBuilder.group({
@@ -47,6 +49,7 @@ export class SignupComponent {
         this.store.dispatch(updateOptions({ user: data.user }));
         localStorage.setItem('token', data.token);
         this.errorMessage = '';
+        this.ToastrService.showSuccess("successfully registered")
         this.router.navigate(['/']);
       }else{
         this.errorMessage=data.message

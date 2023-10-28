@@ -1,0 +1,29 @@
+<nav
+  class="mx-auto block w-full border border-white/80 bg-gray-900 bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4"
+>
+  <div>
+    <div class="container mx-auto flex items-center justify-between text-white">
+      <a
+        routerLink="/admin"
+        class="mr-4 block cursor-pointer py-1.5 font-sans text-sm font-normal leading-normal text-inherit antialiased"
+      >
+        <div class="flex gap-2 logoDiv cursor-pointer">
+          <h1
+            class="logo text-[25px] text-white transition hover:text-gray-500/75"
+          >
+            <strong>Store</strong>pic admin side
+          </h1>
+        </div>
+      </a>
+
+      <div class="flex lg:w-auto w-full justify-end mr-2">
+        <button
+          (click)="userLogOut()"
+          class="ml-5 hidden lg:block px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f] bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

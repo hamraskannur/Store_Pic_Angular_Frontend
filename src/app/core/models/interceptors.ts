@@ -7,6 +7,7 @@ export interface User{
   status:boolean
   key:string
   admin:boolean
+  profileImage:string
 }
 
 export interface AuthResponse {

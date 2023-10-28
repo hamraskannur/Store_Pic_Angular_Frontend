@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { UserState } from 'src/app/stores/user/user.reducer';
 import { updateOptions } from 'src/app/stores/user/user.actions';
 import { selectUserDataAndOptions } from 'src/app/stores/user/user.selectors';
+import { ToastrCallService } from '../../services/toastr.service';
 
 @Component({
   selector: 'app-api',
@@ -24,6 +25,7 @@ export class ApiComponent implements OnInit {
   constructor(
     private ApiService: ApiService,
     private store: Store<{ user: UserState }>
+    ,private ToastrService:ToastrCallService
   ) {
     this.formattedJSON = JSON.stringify(
       {
@@ -64,10 +66,9 @@ export class ApiComponent implements OnInit {
 
     this.ApiService.changeApi().subscribe(
       ({ user }: { success: boolean; message: string; user: User }) => {
-        console.log(user);
         this.loding = false;
-
         this.key = user.key;
+        this.ToastrService.showSuccess("Successfully rest set key")
         this.store.dispatch(updateOptions({ user: user }));
       }
     );

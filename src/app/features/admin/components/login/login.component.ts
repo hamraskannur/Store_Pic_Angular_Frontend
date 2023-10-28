@@ -5,10 +5,8 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { passwordPattern } from 'src/app/constants/pattern';
-import { AuthResponse, User } from 'src/app/core/models/interceptors';
-import { UserState } from 'src/app/stores/user/user.reducer';
-import { updateOptions } from 'src/app/stores/user/user.actions';
 import { AdminApiService } from '../../services/admin-api.service';
+import { ToastrCallService } from 'src/app/features/user/services/toastr.service';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +23,7 @@ export class LoginComponent {
     private FormBuilder: FormBuilder,
     private ApiService: AdminApiService,
     private router: Router,
-    private store: Store<{ user: UserState }>
-
+    private ToastrService:ToastrCallService
   ) {}
 
   loginForm = this.FormBuilder.group({
@@ -48,6 +45,8 @@ export class LoginComponent {
         localStorage.setItem('adminToken', data.token);
         this.errorMessage = '';
         this.router.navigate(['/admin']);
+        this.ToastrService.showSuccess("successfully Login")
+
       }else{
         this.errorMessage=data.message
       }

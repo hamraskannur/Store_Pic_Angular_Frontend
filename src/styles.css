@@ -2,3 +2,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.custom-toast{
+    color: white;
+    border-radius: 8px;
+    width: 18rem;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+.custom-toast .toast-title {
+    font-weight: bold;
+}
+  
+
+.errCustom-toast{
+    color: rgb(18, 17, 17);
+    border-radius: 8px;
+    width: 18rem;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+.errCustom-toast .toast-title {
+    font-weight: bold;
+}
+  
+
+.toast-close-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #c41717;
+  font-size: 18px;
+  cursor: pointer;
+}

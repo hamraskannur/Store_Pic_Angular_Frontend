@@ -9,6 +9,7 @@ import { passwordPattern } from 'src/app/constants/pattern';
 import { AuthResponse } from 'src/app/core/models/interceptors';
 import { UserState } from 'src/app/stores/user/user.reducer';
 import { updateOptions } from 'src/app/stores/user/user.actions';
+import { ToastrCallService } from '../../services/toastr.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent {
     private FormBuilder: FormBuilder,
     private ApiService: ApiService,
     private router: Router,
-    private store: Store<{ user: UserState }>
+    private store: Store<{ user: UserState }>,
+    private ToastrService:ToastrCallService
 
   ) {}
 
@@ -48,6 +50,7 @@ export class LoginComponent {
         this.store.dispatch(updateOptions({ user: data.user }));
         localStorage.setItem('token', data.token);
         this.errorMessage = '';
+        this.ToastrService.showSuccess("successfully Login")
         this.router.navigate(['/']);
       }else{
         this.errorMessage=data.message

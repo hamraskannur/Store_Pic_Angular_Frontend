@@ -1,0 +1,64 @@
+<main
+  *ngIf="username"
+  class="antialiased absolute w-full h-full text-gray-900 font-sans overflow-x-hidden"
+>
+  <div
+    class="relative px-4 min-h-screen md:flex md:items-center md:justify-center"
+  >
+    <div class="bg-black opacity-25 w-full h-full absolute z-10 inset-0"></div>
+    <div
+      class="bg-white shadow-lg border-2 rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative"
+    >
+      <div class="items-center">
+        <div
+          class="rounded-full border border-gray-300 flex items-center justify-center w-36 h-36 flex-shrink-0 mx-auto"
+        >
+          <div (click)="selectImage()">
+            <i class="bx bx-error text-3xl" (click)="selectImage()">
+              <img [src]="profileImage" alt="" #profileImageDisplay />
+            </i>
+          </div>
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onImageSelected($event)"
+            #imageInput
+            style="display: none"
+          />
+        </div>
+        <div class="mt-2 md:ml-6 text-center md:text-left">
+          <form (ngSubmit)="onSubmit()" class="form" [formGroup]="loginForm">
+            <div class="inputBox">
+              <input
+                type="text"
+                name="userName"
+                required
+                formControlName="userName"
+              />
+              <i>Username</i>
+              <div
+                *ngIf="submit && f.userName.errors"
+                class="invalid-feedback text-red-600"
+              >
+                <small *ngIf="f.userName.errors['required']">
+                  username is required
+                </small>
+                <small *ngIf="f.userName.errors['minlength']">
+                  username minLength 6 letter
+                </small>
+              </div>
+            </div>
+
+            <div class="mt-2 flex">
+              <button type="button" (click)="cancelProfile()" class="inputBoxs">
+                Cancel
+              </button>
+              <button type="submit" class="inputBoxs ml-2">save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="text-center md:text-right mt-4 md:flex md:justify-end"></div>
+    </div>
+  </div>
+</main>

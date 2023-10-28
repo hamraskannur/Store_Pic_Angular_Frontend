@@ -11,6 +11,7 @@ import { OneImageComponent } from './components/one-image/one-image.component';
 import { ConfirmationPopupComponent } from './components/one-image/confirmation-popup/confirmation-popup.component';
 import { ApiComponent } from './components/api/api.component';
 import { GuestUserComponent } from './components/guest-user/guest-user.component';
+import { UserProfileComponent } from 'src/app/core/components/user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GuestUserComponent } from './components/guest-user/guest-user.component
     OneImageComponent,
     ConfirmationPopupComponent,
     ApiComponent,
-    GuestUserComponent
+    GuestUserComponent,
+    UserProfileComponent
   ],
   imports: [
     FormsModule,

@@ -2,6 +2,7 @@ import { Component,Output,EventEmitter } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { HttpEventType } from '@angular/common/http';
 import { Image } from 'src/app/core/models/interceptors';
+import { ToastrCallService } from '../../../services/toastr.service';
 
 @Component({
   selector: 'app-upload-image',
@@ -17,7 +18,8 @@ export class UploadImageComponent {
   selectedExpirationTime: number = 0; // Default to "Don't auto delete"
   @Output() addImage: EventEmitter<Image> = new EventEmitter<Image>();
 
-  constructor(private ApiService: ApiService) {}
+    
+    constructor(private ApiService: ApiService,private ToastrService:ToastrCallService) {}
 
   fileSelectHandler(e: Event) {
     e.preventDefault();
@@ -57,6 +59,7 @@ export class UploadImageComponent {
           if(event.body){
             if(event.body.success){
               this.addImage.emit(event.body.image);
+              this.ToastrService.showSuccess("Successfully upload an image")
               this.startUpload=false
               this.fileProgress = 0;
             }else{

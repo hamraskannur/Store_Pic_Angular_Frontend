@@ -15,6 +15,8 @@ export class NavBarComponent implements OnInit{
   userDataAndOptions$ = this.store.select(selectUserDataAndOptions);
   open=false
   username=''
+  openprofile=false
+  user?:User
   constructor(
     private router: Router,
     private store: Store<{ user: UserState }>,
@@ -23,6 +25,7 @@ export class NavBarComponent implements OnInit{
     this.userDataAndOptions$.subscribe(({ user }: { user: User | null }) => {      
       if (user) {
        this.username=user.username
+       this.user=user
       }
     });
   }
@@ -32,5 +35,8 @@ export class NavBarComponent implements OnInit{
   }
   openNav(){
     this.open=!this.open
+  }
+  openUserProfile(){
+    this.openprofile=!this.openprofile
   }
 }

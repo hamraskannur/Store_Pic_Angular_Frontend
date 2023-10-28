@@ -27,8 +27,8 @@
       
       <div class="flex lg:w-auto w-full justify-end mr-2" >
 
-        <ng-container *ngIf="username; else loginLink">
-          <div class="flex gap-2">
+        <ng-container *ngIf="username; else loginLink" >
+          <div class="flex gap-2 cursor-pointer " (click)="openUserProfile()">
             <div class="w-9 rounded-full overflow-hidden">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
@@ -139,3 +139,5 @@
     </div>
   </div>
 </nav>
+
+<app-user-profile *ngIf="user && openprofile" (openUserProfile)="openUserProfile()" [profileImage]="user.profileImage" [username]="user.username"></app-user-profile>
