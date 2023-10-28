@@ -17,11 +17,11 @@
         <div id="start">
           <i class="fa fa-download" aria-hidden="true"></i>
           <div class="text-gray-900"> Select a file</div>
-          <div id="notimage" class="hidden">Please select an image</div>
+          <div id="notimage" class="hidden ">Please select an image</div>
           <span id="file-upload-btn" class="btn bg-gray-900">Select a file</span>
         </div>
       </ng-template>
-      <div id="messages" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div id="messages" *ngIf="errorMessage" class="text-red-500">{{ errorMessage }}</div>
       <div id="response" *ngIf="startUpload" class="flex-none">
         <progress
           class="progress"

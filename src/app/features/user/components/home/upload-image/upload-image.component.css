@@ -88,6 +88,7 @@ p {
 }
   .uploader #response #messages {
     margin-bottom: 0.5rem;
+    color: red;
   }
 .uploader #file-image {
   display: inline;
@@ -104,6 +105,7 @@ p {
   float: left;
   clear: both;
   width: 100%;
+  
 }
 .uploader #notimage.hidden {
   display: none;
