@@ -4,7 +4,6 @@ import { AppNotfoundComponent } from './features/error/components/app-notfound/a
 import { AppBadgatewayComponent } from './features/error/components/app-badgateway/app-badgateway.component';
 import { AppInternalserverComponent } from './features/error/components/app-internalserver/app-internalserver.component';
 import { CommonerrorComponent } from './features/error/components/commonerror/commonerror.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./features/user/user.module').then(m => m.UserModule) },
@@ -19,6 +18,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
 export class AppRoutingModule { }
