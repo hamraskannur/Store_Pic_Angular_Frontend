@@ -1,4 +1,4 @@
-
+<!-- 
 <nav
   class="mx-auto block w-full border border-white/80 bg-gray-900 bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4"
 >
@@ -49,8 +49,8 @@
         </ng-container>
       
         <ng-template #loginLink>
-          <!-- This will be displayed when 'username' is not defined -->
-          <a
+           This will be displayed when 'username' is not defined -->
+          <!-- <a
             routerLink="/login"
             class=" ml-5 hidden lg:block px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]  bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 "
           >
@@ -140,4 +140,119 @@
   </div>
 </nav>
 
-<app-user-profile *ngIf="user && openprofile" (openUserProfile)="openUserProfile()" [profileImage]="user.profileImage" [username]="user.username"></app-user-profile>
+<app-user-profile *ngIf="user && openprofile" (openUserProfile)="openUserProfile()" [profileImage]="user.profileImage" [username]="user.username"></app-user-profile> -->
+
+
+
+<header class="bg-white dark:bg-gray-900">
+  <div
+    class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
+  >
+    <a class="block text-red-600" href="/">
+      <span class="sr-only">Home</span>
+      <h1 class=" text-3xl font-bold">Store<strong class="dark:text-white text-black">.</strong>pic</h1>
+    </a>
+
+    <div class="flex flex-1 items-center justify-end md:justify-between">
+      <nav aria-label="Global" class="hidden md:block">
+        <ul class="flex items-center gap-6 text-sm mt-2">
+          <li>
+            <a class="text-gray-500 transition hover:text-gray-500/75"  routerLink="/">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a class="text-gray-500 transition hover:text-gray-500/75"  routerLink="/api">
+              Api
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="sm:flex sm:gap-4">
+          <a
+          *ngIf="username else login" (click)="userLogOut()"
+            class="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
+            routerLink="/login"
+          >
+            Log out
+          </a>
+        </div>
+        
+        <ng-template #login>
+          <a
+            class="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
+            routerLink="/login"
+          >
+            Login
+          </a>
+
+          <a
+            class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-red-600 transition hover:text-red-600/75 sm:block"
+            routerLink="/signup"
+          >
+            Register
+          </a>
+        </ng-template>
+       
+      
+
+        <button
+         (click)="openNav()"
+          class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+        >
+          <span class="sr-only">Toggle menu</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+
+      <div
+      *ngIf="open"
+      class="lg:hidden w-40 mr-2 rounded-md ml-auto mt-14 border-2 h-20 bg-white fixed overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none"
+    >
+      <a
+        routerLink="/home"
+        class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
+      >
+        <h1
+          class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
+        >
+          🏠
+        </h1>
+        <h1 class="text-black">Home</h1>
+      </a>
+      <a
+        routerLink="/api"
+        class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
+      >
+        <h1
+          class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
+        >
+          📖
+        </h1>
+        <h1 class="text-black">Api</h1>
+      </a>
+
+    </div>
+    </div>
+
+  </div>
+
+ 
+</header>

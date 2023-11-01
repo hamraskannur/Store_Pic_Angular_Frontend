@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div  *ngIf="image ">
+<div  *ngIf="image " class="bg-gray-50">
     <app-confirmation-popup [image]="image" *ngIf="popup" (cancelDelete)="deleteImagePopup()"></app-confirmation-popup>
     <div class="w-full flex mt-2 justify-center">
         <div>

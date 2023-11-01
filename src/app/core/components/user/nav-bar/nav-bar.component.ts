@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { User } from 'src/app/core/models/interceptors';
+import { removeUserData } from 'src/app/stores/user/user.actions';
 import { UserState } from 'src/app/stores/user/user.reducer';
 import { selectUserDataAndOptions } from 'src/app/stores/user/user.selectors';
 
@@ -31,6 +32,7 @@ export class NavBarComponent implements OnInit{
   }
   userLogOut(){
     localStorage.clear()
+    this.store.dispatch(removeUserData( ));
     this.router.navigate(['/login'])
   }
   openNav(){
