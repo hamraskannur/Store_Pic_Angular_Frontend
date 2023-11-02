@@ -1,14 +1,14 @@
 <app-nav-bar></app-nav-bar>
 <div class="flex justify-center items-center bg-gray-50">
   <div class="w-full md:mx-56 mx-5">
-    <h1 class="mt-5"><strong>API version 1</strong></h1>
+    <h1 class="mt-5 text-red-600"><strong>API version 1 :-</strong></h1>
     <div class="md:flex md:items-center mb-6 mt-2 md:w-full">
       <div class="md:w-full">
         <label
           class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
           for="inline-full-name"
         >
-          Imgbb's API v1 allows to upload pictures :
+          store.pic API v1 allows to upload pictures :
         </label>
       </div>
       <div class="md:w-full flex">
@@ -28,13 +28,20 @@
         </button>
       </div>
     </div>
-    <div *ngIf="!loding">
-      <button (click)="restKey()" class="btn bg-[#6B7280]">Rest set key</button>
+   
+
+    <div *ngIf="!loding"  class="mt-8 flex flex-wrap  gap-4">
+      <button
+      (click)="restKey()"
+        class="block cursor-pointer w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary-500 sm:w-auto"
+      >
+      Reset Key
+      </button>
     </div>
     <div *ngIf="loding">
       <button
         type="button"
-        class="flex justify-between ml-2 font-bold py-1 rounded bg-slate-700 hover:bg-slate-600 text-white px-6 pb-2 pt-2.5 text-xs uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] mr-2 border border-gray-200 focus:z-10 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 items-center"
+        class="flex justify-between ml-2 font-bold py-1 rounded bg-red-600 hover:bg-red-600 text-white px-6 pb-2 pt-2.5 text-xs uppercase leading-normal transition duration-150 ease-in-out focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] mr-2 border border-gray-200 focus:z-10 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 items-center"
       >
         <svg
           aria-hidden="true"
@@ -137,7 +144,7 @@
         <label
           class="w-full block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
         >
-          Image (required) :
+          Image (required)* :
         </label>
         <div class="md:w-full flex">
           <label class="md:w-full text-gray-500 font-bold mb-1 md:mb-0 pr-4">
@@ -149,8 +156,8 @@
 
 
       <div class="md:w-full mt-2">
-        <label class="md:w-full block text-black font-bold mb-1 md:mb-0 pr-4">
-          Api response :
+        <label class="md:w-full block text-red-600  font-bold mb-1 md:mb-0 pr-4">
+          Api response :-
         </label>
         <div class="md:w-full mt-5">
           <label class="md:w-full break-all text-gray-500 font-bold mb-1 md:mb-0 pr-4">
@@ -163,10 +170,10 @@
       </div>
 
       <div class="md:w-full mt-4 mb-10 ">
-        <label class="md:w-full block text-black font-bold mb-1 md:mb-0 pr-4">
-          Example response(JSON):
+        <label class="md:w-full block text-red-600  font-bold mb-1 md:mb-0 pr-4">
+          Example response(JSON):-
         </label>
-        <div class="md:w-full flex">
+        <div class="md:w-full flex mt-2">
           
           <pre id="data" class="bg-gray-200 h-full border-2 border-gray-200 w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#6B7280]">
             {{formattedJSON}}

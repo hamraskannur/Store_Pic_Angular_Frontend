@@ -1,8 +1,11 @@
-<section>
+
+<app-nav-bar></app-nav-bar>
+
+<section class="bg-gray-50 w-full h-full">
  
   <div class="signin">
     <div class="content">
-      <h2>Login</h2>
+      <h2 class="text-red-600"><strong>Login</strong> </h2>
       <form (ngSubmit)="onSubmit()" class="form" [formGroup]="loginForm">
         <div class="inputBox">
           <input type="email" required formControlName="email" name="email"/> <i>Email</i>
@@ -58,8 +61,8 @@
           </div>
         </div>
         <div class="links w-full"><a class="flex w-full justify-center items-center"><small>{{errorMessage}}</small></a> <a routerLink="/signup">Signup</a></div>
-        <div class="inputBoxs">
-          <button type="submit " class="inputBoxs bg-gray-900" >Login</button>
+        <div class="inputBoxs bg-red-600">
+          <button type="submit " class="inputBoxs bg-red-600" >Login</button>
         </div>
       </form>
     </div>

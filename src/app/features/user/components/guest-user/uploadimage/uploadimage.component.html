@@ -1,0 +1,95 @@
+
+
+    
+    <div
+    class="mx-auto h-full flex  items-center justify-center"
+    
+    >
+    <ng-template #selecteImage>
+        <div>
+          <div class="relative flex w-full h-full justify-center items-center ">
+            <img id="file-image" [src]="selectedImage" alt="Preview" />
+            <div class="flex    items-center justify-center  absolute">
+              <app-progress  *ngIf="startUpload" [progressValue]="fileProgress"></app-progress>
+            </div>
+          </div>
+  
+          <div class="flex w-full justify-center mt-3">
+            <div class="container mt-2">
+              <div class="md:flex">
+                <h1 class="mt-3"><strong>Auto Delete Image :</strong></h1>
+  
+                <select class="ml-2 mt-1" [(ngModel)]="selectedExpirationTime">
+                  <option value="0">Don't auto delete</option>
+                  <option value="1">after 1 day</option>
+                  <option value="2">after 2 days</option>
+                  <option value="3">after 3 days</option>
+                  <option value="4">after 4 days</option>
+                  <option value="5">after 5 days</option>
+                  <option value="6">after 6 days</option>
+                  <option value="7">after 1 week</option>
+                  <option value="14">after 2 week</option>
+                  <option value="21">after 3 week</option>
+                  <option value="30">after 1 month</option>
+                  <option value="60">after 2 month</option>
+                  <option value="90">after 3 month</option>
+                  <option value="120">after 4 month</option>
+                  <option value="150">after 5 month</option>
+                  <option value="180">after 6 month</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+         
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+            *ngIf="!startUpload"
+            (click)="uploadFiles()"
+              class="block cursor-pointer w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary-500 sm:w-auto"
+            >
+            Upload  Image
+            </a>
+          </div>
+        </div>
+      </ng-template>
+      <div class="mx-auto max-w-xl text-center">
+        <form
+          id="file-upload-form "
+          class="uploader mt-5"
+          *ngIf="!selectedImage; else selecteImage"
+        >
+          <h1 class="text-3xl font-extrabold sm:text-5xl">
+            Your Image, Your Way
+            <strong class="font-extrabold text-red-600 sm:block">
+              Upload and get links for your images
+            </strong>
+          </h1>
+  
+          <p class="mt-4 sm:text-xl/relaxed">
+            Customize and Manage Uploads. Your Way.
+          </p>
+  
+          <div class="flex w-full justify-center mt-3">
+            <div id="messages" *ngIf="errorMessage">{{ errorMessage }}</div>
+          </div>
+  
+          <input
+            id="file-upload"
+            type="file"
+            name="fileUpload"
+            accept="image/*"
+            (change)="fileSelectHandler($event)"
+          />
+          <label for="file-upload" id="file-drag">
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                class="block cursor-pointer w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary-500 sm:w-auto"
+              >
+                Get Started
+              </a>
+            </div>
+          </label>
+        </form>
+      </div>
+    </div>

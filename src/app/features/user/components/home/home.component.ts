@@ -9,7 +9,6 @@ import { Image } from 'src/app/core/models/interceptors';
 })
 export class HomeComponent implements OnInit {
   images: Image[] = [];
-  showButt: boolean = true;
   constructor(private ApiService: ApiService) {}
 
   ngOnInit(): void {
@@ -19,12 +18,8 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-  showUpload() {
-    this.showButt = !this.showButt;
-  }
 
   addImage(image:Image) {
     this.images.unshift(image);
-    this.showUpload()
   }
 }

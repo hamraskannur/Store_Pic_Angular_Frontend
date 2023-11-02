@@ -1,0 +1,23 @@
+<div class="h-full">
+    <div class="flex items-center flex-wrap bg-white shadow-xl rounded-2xl h-20" [ngStyle]="{ 'background-color': 'white' }">
+      <div class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full">
+        <svg class="w-32 h-32 transform translate-x-1 translate-y-1" aria-hidden="true">
+          <circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="50" cx="60" cy="60"></circle>
+          <circle
+            class="text-red-600"
+            stroke-width="10"
+            [attr.stroke-dasharray]="circumference"
+            [attr.stroke-dashoffset]="circumference - percent / 100 * circumference"
+            stroke-linecap="round"
+            stroke="currentColor"
+            fill="transparent"
+            r="50"
+            cx="60"
+            cy="60"
+          ></circle>
+        </svg>
+        <span class="absolute text-2xl text-red-600">{{ percent }}%</span>
+      </div>
+    </div>
+  </div>
+  
