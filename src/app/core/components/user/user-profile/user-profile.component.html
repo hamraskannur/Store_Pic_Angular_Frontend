@@ -1,64 +1,64 @@
 <main
-  *ngIf="username"
-  class="antialiased absolute w-full h-full text-gray-900 font-sans overflow-x-hidden"
+  *ngIf="user"
+  class="flex items-start justify-center absolute w-full h-full text-gray-900 font-sans overflow-x-hidden"
 >
-  <div
-    class="relative px-4 min-h-screen md:flex md:items-center md:justify-center"
-  >
-    <div class="bg-black opacity-25 w-full h-full absolute z-10 inset-0"></div>
-    <div
-      class="bg-white shadow-lg border-2 rounded-lg md:max-w-md md:mx-auto p-4 fixed inset-x-0 bottom-0 z-50 mb-4 mx-4 md:relative"
-    >
-      <div class="items-center">
-        <div
-          class="rounded-full border border-gray-300 flex items-center justify-center w-36 h-36 flex-shrink-0 mx-auto"
-        >
-          <div (click)="selectImage()">
-            <i class="bx bx-error text-3xl" (click)="selectImage()">
-              <img [src]="profileImage" alt="" #profileImageDisplay />
-            </i>
-          </div>
-          <input
-            type="file"
-            accept="image/*"
-            (change)="onImageSelected($event)"
-            #imageInput
-            style="display: none"
-          />
-        </div>
-        <div class="mt-2 md:ml-6 text-center md:text-left">
-          <form (ngSubmit)="onSubmit()" class="form" [formGroup]="loginForm">
-            <div class="inputBox">
-              <input
-                type="text"
-                name="userName"
-                required
-                formControlName="userName"
-              />
-              <i>Username</i>
-              <div
-                *ngIf="submit && f.userName.errors"
-                class="invalid-feedback text-red-600"
-              >
-                <small *ngIf="f.userName.errors['required']">
-                  username is required
-                </small>
-                <small *ngIf="f.userName.errors['minlength']">
-                  username minLength 6 letter
-                </small>
-              </div>
-            </div>
+  <div class="main w-full md:w-[85vh]">
+    <div class="card">
+      <div class="flex w-full">
 
-            <div class="mt-2 flex">
-              <button type="button" (click)="cancelProfile()" class="inputBoxs">
-                Cancel
-              </button>
-              <button type="submit" class="inputBoxs ml-2">save</button>
-            </div>
-          </form>
+        <div class="flex w-full">
+          <h2 class="text-red-600"><strong>User Profile</strong></h2>
         </div>
+          <div class="justify-end max-w-max pr-5">
+            <img
+             (click)="cancelProfile()"
+              class="w-5 mt-8 h-5 cursor-pointer"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAB7CAMAAABjGQ9NAAAAY1BMVEXZRjr////YQDPYPTDZQzfhbGPYOy7gZVz65OPhbmX32NX87u31z8zbT0TeXVPcUkbjfHP0yMXdVkv+9/bXNynsp6LkgHj53tzxvbnnkInbTED76efwuLPurajmioPxwr/qnpmRdoozAAAFRUlEQVRogb2b2cKqIBRGAUktKyv/RjvV+z/l0SxFZNgfatxqrIAlwwYY11J6eSyT3fWZ6Q+CU7E6npamHJlGvrJYSClEdDhORH8uRJWlEHH+0nLssy+HSLImyShZTUAuXkK0OS76OfbYR/Yl10kc9qPR2SmSao5rG/vfn4qu/ihb83Gp2MW9HMVNLbnC1tEVXIyDF7s/PUcV3rGPA3T1qhxT7dkAXZe8K07LPoohuv6f4fDsFBtyVNr8yzajq1c3oXAzWoUzN7qupDB4YUEr8IY91EypdhkinG54vzirju1Ch8Fd6Nb2mn10vVe/ytBqNxneh68b9oW5Sv1+FRTOplmX3m3OeHoQnhdR26uO1J9jUlbsq/9FzHYKmrHowVm58dX4O9G7V7dmXYbszPakN+nwYR9uSfGRvSgV1PxRSrX7DFfyW7CT37TvywTh/IZ36QawCXCaZm260tneUa2A0Dd2p1eSr3slGv7Na8FWkvSNEeBkw5tUec4XQKW7bM+gUlelWDF+gfSwCocYXqe6X+P8gf3I3Lej6KY/59kSK7k63esMx9Bys27G7zIBq33QvWKGf+e/73nLWDho+Pf3zXwtQ+E920HD2w/1M08tFyA87+BgR9rNBb7z8xQVrrUdRre/bNclKVryz0IRNrwbE7r1WJhwsGbKCk9Zh2YJWIIKjqOVL0Rdf8O23y5ohfeGol7cAW9zZAwcdMf9eAtqO5bE1hFvwUs+Bq2zYdsB9ObM3WzYdjI6T3XUgA3bTkQf9FKb2LMIN2hrC3sG4YxoI3tyuDgYw6NGdmX7lMINDXexJxXOYLiTzbPJqt1kuJs9me1mzdzsieAOtIM9ie0Ww73sCWwXua2tfezRtlsNJ7BHjmp2wynsUcK5NKOwRwjnRXvZwXCn4UR2YJu7Daeyg2z3GE5m83KJTYWryXPiLzWNzde0eK9S7BclWwo7O8HlZpdp2GhA4w2PCHA/G13ufeCxH+5l04PSGlzcx7LLgAr/wJkPPmN/7oXPOY5J6YbPOn57bJ933uK2feb5mrPa556nuoSbfX7ugM+/LpHC1uY/WI9ZhfvFOtQG/8n622L7b+IOZuF+FG8xwn8VZzJ1rz+LrxmEG8YV50HXcL3afxhPHbT5uDgyNn/V4T+Nn2vwMfsGYrtH9w16to/YL6mXe/B+iWp7+D5Rs9wr0D2W6D5ko239DWjAO4pdmwfvC7ZRBVzQe5+N/ns1oIF/mHeVDRveC2ikcJs/OzaM1gIaaEf8sT1k338Y0IB3FN+2s4C2NoTscNv3b/YjXDOlzeHvpD7ncZ8CjcOjK2fFFjrXYw/Zgd+5vJVsjaEdITvQ9vjCfIdT++iNK2SH2S4e7AGU2xeUhmwXO+Tcnj8yjLS5TIBy+9GQ7VW5/1HbmxCU5kjfLq5sRZxyUYLSdSILF+1ZkZAq3W14AFzmGeNP65F7Fb2llbpOJekUYvSq+3PCYWiKZl1KCVUpFtn73J43bImhOV95+2lZi8u4f3IscvRm0Sp3w6WoZy7veUuxcN8OoGrWpdQJ/4R/mvla4eiPwu5ZpBs7/LtA+MxT7Wc1Q++XnK1tLsWRq2xeWuDh92pswkn5QXfrknJpavMx94ks8LjdQ+rWY6ZI4rh7VEbb/67tc3UdutXhY++PGWz/U3bO1PV3qd00CTNcTWf97kr8UJ724g7n3jAQrpmSY68uZXQqbGye7rp7kvEk9yTPy7gdqoS4qmg9zlS88ljKqqHj27WcAF1ZdMzjaqSUMooWz/6jQWyvvO+SPNnd8X7USn+eknybvNaF9uA/8MBIQ+YSKswAAAAASUVORK5CYII="
+              alt=""
+            />
+          </div>
       </div>
-      <div class="text-center md:text-right mt-4 md:flex md:justify-end"></div>
+      <form (ngSubmit)="onSubmit()" class="form" [formGroup]="userForm">
+        <img
+          class="rounded-full w-40 h-40"
+          src="http://localhost:3008/1698425914557-3c49a5bf-8b63-44bc-adc8-a06416a7d0dd-pexels-efe-ersoy-17102321.jpg.png"
+          alt=""
+        />
+        <div class="card-body">
+          <i class="fa fa-pen fa-xs edit"></i>
+          <table>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td class="text-red-600">:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="border-none outline-none"
+                    required
+                    name="userName"
+                    formControlName="userName"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td class="text-red-600">:</td>
+                <td>{{ user.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <button
+            type="submit"
+            class="block cursor-pointer w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary-500 sm:w-auto"
+          >
+            save
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+  <!-- End -->
 </main>

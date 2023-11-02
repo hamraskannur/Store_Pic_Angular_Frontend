@@ -50,7 +50,7 @@
       
         <ng-template #loginLink>
            This will be displayed when 'username' is not defined -->
-          <!-- <a
+<!-- <a
             routerLink="/login"
             class=" ml-5 hidden lg:block px-4 py-1 rounded-lg hover:bg-[#d6d3d3] duration-300 border border-[#6f6f6f] hover:text-[#6f6f6f]  bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 "
           >
@@ -142,29 +142,35 @@
 
 <app-user-profile *ngIf="user && openprofile" (openUserProfile)="openUserProfile()" [profileImage]="user.profileImage" [username]="user.username"></app-user-profile> -->
 
-
-
 <header class="bg-white dark:bg-gray-900 static w-full">
   <div
-    class="mx-auto flex  h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
+    class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
   >
     <a class="block text-red-600" href="/">
       <span class="sr-only"> Home</span>
-      <h1 class=" text-3xl font-bold">Store<strong class="dark:text-white text-black">.</strong>pic</h1>
+      <h1 class="text-3xl font-bold">
+        Store<strong class="dark:text-white text-black">.</strong>pic
+      </h1>
     </a>
 
     <div class="flex flex-1 items-center justify-end md:justify-between">
       <nav aria-label="Global" class="hidden md:block">
         <ul class="flex items-center gap-6 text-sm mt-2">
           <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75"  routerLink="/">
-             <strong>Home</strong> 
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75"
+              routerLink="/"
+            >
+              <strong>Home</strong>
             </a>
           </li>
 
           <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75"  routerLink="/api">
-             <strong>Api</strong> 
+            <a
+              class="text-gray-500 transition hover:text-gray-500/75"
+              routerLink="/api"
+            >
+              <strong>Api</strong>
             </a>
           </li>
         </ul>
@@ -172,15 +178,31 @@
 
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
-          <a
-          *ngIf="username else login" (click)="userLogOut()"
-            class="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
-            routerLink="/login"
-          >
-            Log out
-          </a>
+          <ng-container *ngIf="user?.username; else login">
+            <div class="flex gap-2 cursor-pointer" (click)="openUserProfile()">
+              <div class="w-9 rounded-full overflow-hidden hidden lg:block">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                  alt="logo"
+                />
+              </div>
+              <h1
+                class="mt-2 text-gray-500 transition hover:text-gray-500/75 hidden lg:block"
+              >
+                <strong>{{ user?.username }}</strong>
+              </h1>
+            </div>
+            <a
+              (click)="userLogOut()"
+              class="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
+              routerLink="/login"
+            >
+              Log out
+            </a>
+            
+          </ng-container>
         </div>
-        
+
         <ng-template #login>
           <a
             class="block rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
@@ -196,11 +218,9 @@
             Register
           </a>
         </ng-template>
-       
-      
 
         <button
-         (click)="openNav()"
+          (click)="openNav()"
           class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
         >
           <span class="sr-only">Toggle menu</span>
@@ -221,38 +241,60 @@
         </button>
       </div>
 
-
       <div
-      *ngIf="open"
-      class="lg:hidden w-40 mr-2 rounded-md ml-auto mt-14 border-2 h-20 bg-white fixed overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none"
+        *ngIf="open"
+        class="lg:hidden w-40 mr-2 rounded-md ml-auto mt-14 border-2 h-32 bg-white fixed overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none"
+      >
+
+      <button
+      (click)="openUserProfile()"
+      class="group flex items-center w-full ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
     >
-      <a
-        routerLink="/home"
-        class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
+      <h1
+        class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
       >
-        <h1
-          class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
-        >
-          🏠
+        <img
+          class="w-5 h-5"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+          alt="logo"
+        />
+      </h1>
+      <h1 class="text-black">
+        <h1 class="mt-2 text-gray-500 transition hover:text-gray-500/75">
+          <strong>{{ user?.username }}</strong>
         </h1>
-        <h1 class="text-black">Home</h1>
-      </a>
-      <a
-        routerLink="/api"
-        class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
-      >
-        <h1
-          class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
+      </h1>
+    </button>
+        <a
+          routerLink="/home"
+          class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
         >
-          📖
-        </h1>
-        <h1 class="text-black">Api</h1>
-      </a>
-
+          <h1
+            class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
+          >
+            🏠
+          </h1>
+          <h1 class="text-black">Home</h1>
+        </a>
+        <a
+          routerLink="/api"
+          class="group flex items-center ml-2 text-sm gap-3.5 font-medium p-2 hover:bg-[#bbc0c7] rounded-md"
+        >
+          <h1
+            class="hidden max-sm:inline-block max-md:inline-block max-lg:inline-block text-black ml-0"
+          >
+            📖
+          </h1>
+          <h1 class="text-black">Api</h1>
+        </a>
+       
+      </div>
     </div>
-    </div>
-
   </div>
 
- 
+  <app-user-profile
+    *ngIf="user && openprofile"
+    (openUserProfile)="openUserProfile()"
+    [user]="user"
+  ></app-user-profile>
 </header>

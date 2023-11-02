@@ -15,7 +15,6 @@ import { selectUserDataAndOptions } from 'src/app/stores/user/user.selectors';
 export class NavBarComponent implements OnInit{
   userDataAndOptions$ = this.store.select(selectUserDataAndOptions);
   open=false
-  username=''
   openprofile=false
   user?:User
   constructor(
@@ -25,7 +24,6 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     this.userDataAndOptions$.subscribe(({ user }: { user: User | null }) => {      
       if (user) {
-       this.username=user.username
        this.user=user
       }
     });
