@@ -1,15 +1,15 @@
 <app-nav-bar></app-nav-bar>
 <div class="bg-gray-50  h-full">
-  <div class="mt-5 md:mt-20 w-full ">
+  <div class="mt-5 md:mt-20 w-full mb-5 ">
     <app-upload-image (addImage)="addImage($event)"></app-upload-image>
   </div>
-  <div class="flex mx-20 mt-5 ">
+  <div class="flex mx-20 mt-5 "  *ngIf="images.length > 0">
     <p class="mt-4 sm:text-xl/relaxed">
       <strong>Yours Images:-</strong>
     </p>
    
   </div>
-  <div class="flex justify-center w-full h-full ">
+  <div class="flex justify-center w-full h-full mb-5">
     <div
       *ngIf="images.length > 0"
       class="mt-5 md:mx-20 grid grid-cols-1 md:grid-cols-4 w-max sm:grid-cols-2 gap-2"
@@ -20,7 +20,7 @@
       >
         <a [routerLink]="['/oneImage', image._id]">
           <img
-            class="rounded-lg h-96 w-96"
+            class="rounded-lg h-96 w-96 transition duration-300 ease-in-out hover:scale-110"
             [src]="image.image"
             alt="image description"
           />

@@ -178,18 +178,19 @@
 
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
-          <ng-container *ngIf="user?.username; else login">
+          <ng-container *ngIf="user; else login">
             <div class="flex gap-2 cursor-pointer" (click)="openUserProfile()">
               <div class="w-9 rounded-full overflow-hidden hidden lg:block">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                 class="w-10 h-10"
+                  [src]="user.profileImage?user.profileImage:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png'"
                   alt="logo"
                 />
               </div>
               <h1
                 class="mt-2 text-gray-500 transition hover:text-gray-500/75 hidden lg:block"
               >
-                <strong>{{ user?.username }}</strong>
+                <strong>{{ user.username }}</strong>
               </h1>
             </div>
             <a

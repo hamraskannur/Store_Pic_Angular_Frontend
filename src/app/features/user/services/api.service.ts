@@ -49,6 +49,13 @@ export class ApiService {
     return this.http.put<{ success: boolean; message: string ,user:User}>(`${this.serverApi}changeApi`, {})
   };
 
-  
+  updateUserImage=(formData:FormData): Observable<{ success: boolean; message: string ,user:User}> => {
+    return this.http.put<{ success: boolean; message: string ,user:User}>(`${this.serverApi}updateUserImage`,formData)
+  };
+
+
+  updateUserName=(formData:{username:string}): Observable<{ success: boolean; message: string ,user:User}> => {
+    return this.http.put<{ success: boolean; message: string ,user:User}>(`${this.serverApi}updateUserName`,formData)
+  };
 
 }

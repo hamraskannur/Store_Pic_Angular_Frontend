@@ -141,13 +141,13 @@ hr {
   box-shadow: 1px 1px 8px 0 grey;
   height: auto;
   margin-bottom: 20px;
-  padding: 20px 0 20px 50px;
+  padding: 30px ;
 }
 
 .main .card table {
   border: none;
   font-size: 16px;
-  height: 110px;
+  height: 90px;
   width: 80%;
 }
 

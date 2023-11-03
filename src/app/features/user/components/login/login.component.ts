@@ -42,7 +42,6 @@ export class LoginComponent {
   onSubmit(): void {
     this.submit = true;
     if (this.loginForm.valid ) {
-      console.log(this.loginForm.value);
       this.subscription = this.ApiService.userLogin(
         this.loginForm.value
       ).subscribe((data:AuthResponse) => {
