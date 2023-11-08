@@ -9,7 +9,7 @@ import { AuthResponse, Image, User } from '../../../core/models/interceptors';
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
-  private serverApi = 'http://localhost:3008/';
+  private serverApi = 'http://34.203.242.181:3008/';
 
   userSignup = (formData: object): Observable<AuthResponse> => {
     return this.http.post<AuthResponse>(

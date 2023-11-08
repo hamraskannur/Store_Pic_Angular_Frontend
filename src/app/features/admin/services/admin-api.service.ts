@@ -8,7 +8,7 @@ import {  User } from 'src/app/core/models/interceptors';
 export class AdminApiService {
 
   constructor(private http: HttpClient) {}
-  private serverApi = 'http://localhost:3008/admin/';
+  private serverApi = 'http://34.203.242.181:3008/admin/';
 
   adminLogin = (formData: object): Observable<{message: string, status: Boolean,token:string}> => {
     return this.http.post<  {message: string, status: Boolean,token:string}>(`${this.serverApi}adminLogin`, formData);
